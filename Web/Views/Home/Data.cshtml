@@ -1,0 +1,8 @@
+@model IEnumerable<Nypf.Data.Artist>
+
+<ul>
+@foreach(var item in Model)
+{
+	<li>@item.LastName</li>
+}
+</ul>

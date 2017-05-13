@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  web:
+    build: .
+    container_name: nypf-web
+    ports:
+      - "82:5000"
+    volumes:
+      - .:/app:rw
+    # links:
+    #   - db:db
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=helloworld
+  # db:
+  #   container_name: nypf-db
+  #   image: mariadb
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=helloworld
