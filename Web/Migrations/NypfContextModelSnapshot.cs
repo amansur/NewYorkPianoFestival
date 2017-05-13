@@ -7,11 +7,10 @@ using Nypf.Data;
 
 namespace Web.Migrations
 {
-    [DbContext(typeof(DataContext))]
-    [Migration("20170513034010_InitialCreate")]
-    partial class InitialCreate
+    [DbContext(typeof(NypfContext))]
+    partial class NypfContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2");

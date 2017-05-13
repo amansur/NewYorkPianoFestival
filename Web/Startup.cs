@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using Nypf.Data;
 
 namespace Nypf.Web
 {
@@ -28,6 +30,7 @@ namespace Nypf.Web
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddDbContext<NypfContext>(options => options.UseSqlite("Data Source=nypf.db"));
             services.AddMvc();
         }
 

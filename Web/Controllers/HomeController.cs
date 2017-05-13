@@ -9,6 +9,13 @@ namespace Nypf.Web.Controllers
 {
     public class HomeController : Controller
     {
+        public HomeController(NypfContext db)
+        {
+            _db = db;
+        }
+
+        private NypfContext _db { get; set; }
+
         public IActionResult Index()
         {
             return View();
@@ -35,13 +42,10 @@ namespace Nypf.Web.Controllers
 
         public IActionResult Data()
         {
-            using (var db = new DataContext())
-            {
-                db.Artist.Add(new Artist {LastName = "Beck", FirstName ="John"});
-                db.SaveChanges();
-                var artists = db.Artist.ToList();
-                return View(artists);
-            }
+            _db.Artist.Add(new Artist {LastName = "Beck", FirstName ="John"});
+            _db.SaveChanges();
+            var artists = _db.Artist.ToList();
+            return View(artists);
         }
     }
 }
